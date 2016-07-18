@@ -15,6 +15,8 @@
 </head>
 
 <body>
+	<h1>H&P Generator</h1>
+
 	<form id="notemaker">
     	<label for="chiefcomplaint" class="note_label">Chief Complaint</label>
         <textarea rows="2" cols="75" class="note_input" id="chiefcomplaint"></textarea>
@@ -22,6 +24,30 @@
 
     	<label for="HPI" class="note_label">HPI</label>
         <textarea rows="2" cols="75" class="note_input" id="HPI"></textarea>     
+        <br>
+
+            <label for="HTN" class="note_label">HTN</label>
+            <input type="checkbox" id="HTN" value="HTN">
+            <br>
+
+            <label for="NIDDM" class="note_label">NIDDM</label>
+            <input type="checkbox" id="NIDDM" value="NIDDM">
+            <br>
+
+            <label for="afibonAC" class="note_label">Afib on AC</label>
+            <input type="checkbox" id="afibonAC" value="afibonAC">
+            <br>
+
+            <label for="afibnotonAC" class="note_label">Afib not on AC</label>
+            <input type="checkbox" id="afibnotonAC" value="afibonAC">
+            <br>
+
+    	<label for="familyhx" class="note_label">Family History</label>
+        <textarea rows="2" cols="75" class="note_input" id="familyhx"></textarea>     
+        <br>
+
+    	<label for="socialhx" class="note_label">Social History</label>
+        <textarea rows="2" cols="75" class="note_input" id="socialhx"></textarea>     
         <br>
 
     	<label for="physicalexam" class="note_label">Physical Exam</label>
@@ -41,19 +67,70 @@
         <br>
         <br>
 
-		<input type="button" onclick="printsteve()" value="Generate Note"/>		
+<!--	<input type="button" onclick="printsteve()" value="Generate Note"/>		
     </form>
 	<br>
-	
+-->	
+
+
+	<input type="button" onclick="HPIcheckbox()" value="Generate Note"/>		
+    </form>
+	<br>
 
 	<div id="note_output">
 	            <h3>Today's note</h3>
 	</div>	
 
+
+
 <script>
+
+	function HPIcheckbox () {
+	//checks for HTN checkbox results
+		var HTNbox=document.getElementById("HTN");
+		var noteoutputbox=document.getElementById('note_output');
+
+		if (HTNbox.checked==true) {
+			var HTNvalue = "HTN, ";
+		}	
+			else {
+				var HTNvalue = "";
+			}
+
+	//checks for NIDDM checkbox results
+		var NIDDMbox=document.getElementById("NIDDM");
+		var noteoutputbox=document.getElementById('note_output');
+
+		if (NIDDMbox.checked==true) {
+			var NIDDMvalue = "NIDDM, ";
+			noteoutputbox.innerHTML= HTNvalue + NIDDMvalue;
+		}
+			else {
+				var NIDDMvalue = "";
+			}
+
+	//checks for afib on AC checkbox results
+		var afibonACbox=document.getElementById("afibonAC");
+		var noteoutputbox=document.getElementById('note_output');
+
+		if (afibonAC.checked==true) {
+			var afibonACvalue = "atrial fibrillation on AC, ";
+			noteoutputbox.innerHTML= HTNvalue + NIDDMvalue + afibonACvalue;
+		}
+	}
+
+
+
+</script>
+
+<script>
+
 	function printsteve(){
+
 		var chiefComplaintValue = document.getElementById("chiefcomplaint").value;
 		var HPIValue = document.getElementById("HPI").value;
+		var familyhxValue = document.getElementById("familyhx").value;
+		var socialhxValue = document.getElementById("socialhx").value;
 		var physicalexamValue = document.getElementById("physicalexam").value;
 		var ROSValue = document.getElementById("ROS").value;
 		var assessmentValue = document.getElementById("assessment").value;
@@ -64,7 +141,8 @@
 		
 //		alert(chiefComplaintValue + HPIValue);
 
-		noteoutputbox.innerHTML = "Chief complaint:" + "<br>" + chiefComplaintValue + "<br>" + "<br>" + "HPI" + "<br>" + HPIValue + "<br>" + "<br>" + "Physical Exam" + "<br>" + "Vital signs: T =  ; HR =  ; RR =  ;  BP =   ; SaO2 =" + "<br>" + physicalexamValue + "<br>" + "<br>" + "Review of Systems" + "<br>" + ROSValue + "<br>" + "<br>" + "Assessment" + "<br>"+ assessmentValue + "<br>" + "<br>" + "Plan" + "<br>" + planValue ;
+		noteoutputbox.innerHTML = "Chief complaint:" + "<br>" + chiefComplaintValue + "<br>" + "<br>" + "HPI" + "<br>" + HPIValue + "<br>" + "<br>" + "Family History" + "<br>" + familyhxValue + "<br>" + "<br>" + "Social History" + "<br>" + socialhxValue + "<br>" + "<br>" + 		
+		"Physical Exam" + "<br>" + "Vital signs: T =  ; HR =  ; RR =  ;  BP =   ; SaO2 =" + "<br>" + physicalexamValue + "<br>" + "<br>" + "Review of Systems" + "<br>" + ROSValue + "<br>" + "<br>" + "Assessment" + "<br>"+ assessmentValue + "<br>" + "<br>" + "Plan" + "<br>" + planValue ;
 		
 	
 	}
