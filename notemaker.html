@@ -8,26 +8,65 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Arimo|Cabin+Condensed|Heebo" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="mystyle.css">
+<link rel="stylesheet" type="text/css" href="notestyle.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-	<textarea id="lee"> Here is some text area          
-    	</textarea>
+	<form id="notemaker">
+    	<label for="chiefcomplaint" class="note_label">Chief Complaint</label>
+        <textarea rows="2" cols="75" class="note_input" id="chiefcomplaint"></textarea>
+        <br>
+
+    	<label for="HPI" class="note_label">HPI</label>
+        <textarea rows="2" cols="75" class="note_input" id="HPI"></textarea>     
+        <br>
+
+    	<label for="physicalexam" class="note_label">Physical Exam</label>
+        <textarea rows="2" cols="75" class="note_input" id="physicalexam"></textarea>
+        <br>
+
+    	<label for="ROS" class="note_label">Review of Systems</label>
+        <textarea rows="2" cols="75" class="note_input" id="ROS"></textarea>
+        <br>
+
+    	<label for="assessment" class="note_label">Assessment</label>
+        <textarea rows="2" cols="75" class="note_input" id="assessment"></textarea>
+        <br>
+
+    	<label for="plan" class="note_label">Plan</label>
+        <textarea rows="2" cols="75" class="note_input" id="plan"></textarea>
+        <br>
+        <br>
+
+		<input type="button" onclick="printsteve()" value="Generate Note"/>		
+    </form>
 	<br>
 	
-		<input type="button" onclick="printsteve()" value="Calculate"/>		
 
-
+	<div id="note_output">
+	            <h3>Today's note</h3>
+	</div>	
 
 <script>
 	function printsteve(){
-		var textValue = document.getElementById("lee").value;
+		var chiefComplaintValue = document.getElementById("chiefcomplaint").value;
+		var HPIValue = document.getElementById("HPI").value;
+		var physicalexamValue = document.getElementById("physicalexam").value;
+		var ROSValue = document.getElementById("ROS").value;
+		var assessmentValue = document.getElementById("assessment").value;
+		var planValue = document.getElementById("plan").value;
 
-		alert(textValue);	
+
+		var noteoutputbox=document.getElementById('note_output');
+		
+//		alert(chiefComplaintValue + HPIValue);
+
+		noteoutputbox.innerHTML = "Chief complaint:" + "<br>" + chiefComplaintValue + "<br>" + "<br>" + "HPI" + "<br>" + HPIValue + "<br>" + "<br>" + "Physical Exam" + "<br>" + "Vital signs: T =  ; HR =  ; RR =  ;  BP =   ; SaO2 =" + "<br>" + physicalexamValue + "<br>" + "<br>" + "Review of Systems" + "<br>" + ROSValue + "<br>" + "<br>" + "Assessment" + "<br>"+ assessmentValue + "<br>" + "<br>" + "Plan" + "<br>" + planValue ;
+		
+	
 	}
 
 </script>
