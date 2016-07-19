@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Arimo|Cabin+Condensed|Heebo" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="notestyle.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<h1>H&P Generator</h1>
+
+	<form id="notemaker">
+    	<label for="chiefcomplaint" class="note_label">Chief Complaint</label>
+        <textarea rows="2" cols="75" class="note_input" id="chiefcomplaint"></textarea>
+        <br>
+
+    	<label for="popularHPI" class="note_label">HPI</label>
+   		<div class="subinputs" id="popularHPI">	
+            <label for="HTN" class="note_label">HTN</label>
+            <input type="checkbox" id="HTN" value="HTN">
+            <br>
+            <label for="NIDDM" class="note_label">NIDDM</label>
+            <input type="checkbox" id="NIDDM" value="NIDDM">
+            <br>
+            <label for="afibonAC" class="note_label">Afib on AC</label>
+            <input type="checkbox" id="afibonAC" value="afibonAC">
+            <br>
+            <label for="afibnotonAC" class="note_label">Afib not on AC</label>
+            <input type="checkbox" id="afibnotonAC" value="afibonAC">
+            <br>
+            <label for="COPD" class="note_label">COPD</label>
+            <input type="checkbox" id="COPD" value="COPD">
+            <br>
+            <label for="GERD" class="note_label">GERD</label>
+            <input type="checkbox" id="GERD" value="GERD">
+            <br>
+            <label for="dementia" class="note_label">dementia</label>
+            <input type="checkbox" id="dementia" value="dementia">
+            <br>
+		</div>
+
+    	<label for="HPI" class="note_label">HPI</label>
+        <textarea rows="2" cols="75" class="note_input" id="HPI"></textarea>     
+        <br>
+
+    	<label class="note_label">Physical Exam</label>
+		<br>
+		<div class="subinputs">
+			<label for="PE_WNL" class="note_label">within normal limits</label>
+            <input type="checkbox" id="PE_WNL" value="WNL">
+            <br>
+  		</div>
+  
+    	<label class="note_label">Review of Systems</label>
+		<br>
+		<div class="subinputs">
+			<label for="ROS_WNL" class="note_label">negative</label>
+            <input type="checkbox" id="ROS_WNL" value="WNL">
+            <br>
+  		</div>
+
+    	<label for="assessment" class="note_label">Assessment</label>
+        <textarea rows="2" cols="75" class="note_input" id="assessment"></textarea>
+        <br>
+
+    	<label for="plan" class="note_label">Plan</label>
+        <textarea rows="2" cols="75" class="note_input" id="plan"></textarea>
+        <br>
+        <br>
+
+
+	<input type="button" onclick="HPIcheckbox()" value="Generate Note"/>		
+    </form>
+	<br>
+
+	<div id="note_output">
+	            <h3>Today's note</h3>
+	</div>	
+
+
+
+<script>
+
+	function HPIcheckbox () {
+	//HTN checkbox results
+		var HTNbox=document.getElementById("HTN");
+		if (HTNbox.checked==true) {
+			var HTNvalue = "HTN, ";
+		}	
+			else {
+				var HTNvalue = "";
+			}
+	//NIDDM checkbox results
+		var NIDDMbox=document.getElementById("NIDDM");
+		if (NIDDMbox.checked==true) {
+			var NIDDMvalue = "NIDDM, ";
+		}
+			else {
+				var NIDDMvalue = "";
+			}
+	//afib on AC checkbox results
+		var afibonACbox=document.getElementById("afibonAC");
+		if (afibonACbox.checked==true) {
+			var afibonACvalue = "atrial fibrillation on AC, ";
+		}
+			else {
+				var afibonACvalue = "";
+			}
+	//checks for COPD checkbox results
+		var COPDbox=document.getElementById("COPD");
+		if (COPDbox.checked==true) {
+			var COPDvalue = "chronic respiratpry failure due to COPD, ";
+			alert (COPDvalue);
+		}
+			else {
+				var COPDvalue = "";
+			}
+	//checks for GERD checkbox results
+		var GERDbox=document.getElementById("GERD");
+		if (GERDbox.checked==true) {
+			var GERDvalue = "GERD, ";
+		}
+			else {
+				var GERDvalue = "";
+			}
+	//checks for dementia checkbox results
+		var dementiabox=document.getElementById("dementia");
+		if (dementiabox.checked==true) {
+			var dementiavalue = "dementia, ";
+			alert(dementiavalue);
+		}
+			else {
+				var dementiavalue = "";
+			}		
+
+	//checks for physical exam checkbox results
+	var PE_WNLbox=document.getElementById("PE_WNL");
+	if (PE_WNLbox.checked==true) {
+			var PE_WNLvalue = 
+				"General: in NAD, well-developed, well-nourished" + "<br>" +
+				"Skin: no visible skin breakdown, no rashes" + "<br>" +
+				"HEENT: AT/NC" + "<br>" +
+				"Neck: supple, no JVD" + "<br>" +
+				"Pulm: CTA B/L, no wheezes/rales/ronchi" + "<br>" + 
+				"CV: RRR, no murmurs/rubs/gallops" + "<br>" + 
+				"Abd: normoactive bowel sounds, nontender, nondistended" + "<br>" + 
+				"MSK: no crepitus, no bony deformities" + "<br>" + 
+				"Neuro: no focal neurologic deficits" + "<br>" + 
+				"Psych: appropriate mood and affect" + "<br>" + 
+				"Ext: no pedal edema" + "<br>";
+		}
+			else {
+				var PE_WNLvalue = "";
+			}		
+		
+	//checks for ROS checkbox results
+	var ROS_WNLbox=document.getElementById("ROS_WNL");
+	if (ROS_WNLbox.checked==true) {
+			var ROS_WNLvalue = 
+				"Constitutional: denies fever/chills/nausea/vomiting" + "<br>" +
+				"Skin: denies rashes, denies erythema, denies pruritis" + "<br>" +
+				"HEENT: denies HA" + "<br>" +
+				"Neck: denies neck pain, denies neck stiffness" + -"<br>" +
+				"Pulm: denies SOB, denies cough" + "<br>" + 
+				"CV: denies CP, denies palpitations" + "<br>" + 
+				"GI: denies abdominal pain, denies constipation, denies diarrhea" + "<br>" + 
+				"MSK: denies back pain, denies knee pain" + "<br>" + 
+				"Neuro: denies focal weakness" + "<br>" + 
+				"Psych: denies depressed mood" + "<br>" + 
+				"Endo: denies heat intolerance, denies cold intolerance, denies polyuria/polydypsia" + "<br>" + 
+				"Ext: denies pedal edema" + "<br>"		
+		}
+			else {
+				var ROS_WNLvalue = "";
+			}		
+		
+//	function printsteve(){
+
+		var chiefComplaintValue = document.getElementById("chiefcomplaint").value;
+		var HPIValue = document.getElementById("HPI").value;
+		var assessmentValue = document.getElementById("assessment").value;
+		var planValue = document.getElementById("plan").value;
+
+		var noteChiefComplaint = "CHIEF COMPLAINT" + "<br>" + chiefComplaintValue + "<br>" + "<br>";
+		var noteHPI = "HPI" + "<br>" + HTNvalue + NIDDMvalue + afibonACvalue + COPDvalue + GERDvalue + dementiavalue + "<br>" + "<br>";
+		var notePE_WNL = "PHYSICAL EXAM" + "<br>" + PE_WNLvalue + "<br>" + "<br>";
+		var noteROS_WNL = "REVIEW OF SYSTEMS" + "<br>" + ROS_WNLvalue + "<br>" + "<br>";
+		var noteAssessment = "ASSESSMENT" + "<br>" + assessmentValue + "<br>" + "<br>";
+		var notePlan = "PLAN" + "<br>" + planValue + "<br>" + "<br>";
+
+
+		var noteoutputbox=document.getElementById('note_output');
+		noteoutputbox.innerHTML =  noteChiefComplaint + noteHPI + noteSurgicalhx + noteFamilyhx + noteSocialhx + notePE_WNL + noteROS_WNL + noteAssessment + notePlan;
+		
+	
+	}
+
+</script>
+
+</body>
+</html>
