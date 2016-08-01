@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	font-family: "franklin gothic medium", verdana, sans-serif;
+}
+
+header {
+	background-color: rgba(91, 95, 255, 0.6);	
+	padding: 1.2em;
+}
+
+body {
+	font-size: 2.5em;
+}
+
+.wrapper {
+	margin: auto 15% 15%; 
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+	margin: 2.5%; 
+}	
+
+.value_label {
+	font-size: 1.5rem;
+		
+}
+
