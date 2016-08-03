@@ -20,6 +20,8 @@
 </head>
 
 <header>
+
+
 </header>
 
 <body>
@@ -28,10 +30,12 @@
     		<h1>Creatinine Clearance Calculator</h1>
 			<br>
             
-            <label for="male_radio" class="value_label">Gender</label>
-			<input type="radio" name="gender" id="male_radio" value="male">Male<br>
-			<input type="radio" name="gender" id="female_radio" value="female">Female<br>
-
+			<label for="male_radio" class="gender_label">Gender</label>
+            <input type="radio" name="gender" id="male_radio" value="male">Male<br>
+        
+        	<label for="female_radio" class="gender_label"></label>
+            <input type="radio" name="gender" id="female_radio" value="female">Female<br>
+	
             <label for="age" class="value_label">Age</label>
 			<input type="text" class="textbox_input" id="age">
 			<br>
@@ -44,9 +48,37 @@
 			<input type="text" class="textbox_input" id="weight">
 			<br>
 
+			<div class="calculate_button_container">           
+				<input type=button onclick="calculateCreatinineClearance()" value="Calculate"/>		
+				
+
+            </div>
+			<br>
+
+			<div id="output_result">
+				<h2>Creatinine clearance is:</h2>
+				
+
+			</div>
 		</form>
     	
     </div>
+
+<script>
+	function calculateCreatinineClearance (){
+		var genderValue = "";
+		var ageValue = parseFloat(document.getElementById('age').value);
+		var creatinineValue = parseFloat(document.getElementById('creatinine').value);
+		var weightValue = parseFloat(document.getElementById('weight').value);
+
+		var creatinineClearance = ((140-ageValue)/(creatinineValue)) * (weightValue/72);
+
+		var output_box = document.getElementById('output_result');
+		output_box.textContent = creatinineClearance;
+
+	}
+
+</script>
 
 </body>
 </html>
