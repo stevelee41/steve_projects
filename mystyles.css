@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 23, 2016, 11:04:08 AM
+    Author     : Steven
+*/
+
+
+/*   //////////     NAVBAR STYLES      ///////////////////////////////////////*/
+
+.my_navbar {
+    background: powderblue;
+    margin: 0.1rem;
+    padding: 0.1rem;
+}
+
+.my_navbar_button {
+    float: left;
+    
+}
+
+.navbar-nav {
+}
+
+.nav_menu {
+    height: 2rem;
+    background: pink;
+    
+}
+
+.my_icon_bar {
+    background-color: black;   
+}
+
+
+/*   //////////     MAIN CALCULATORS PAGE STYLES     /////////////////////////*/
+
+.calculator_list {
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: -3.4rem;
+}
+
+
+.calculator_select {
+    background: radial-gradient(deepskyblue, powderblue);
+    border-radius: 1rem;
+    width: 20rem;
+    margin: 2rem auto;
+    padding: 2rem 3rem 4rem;
+    height: 5rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: .15rem .15rem;
+    color: black;
+}
+
+.calculator_select:hover {
+    background: mediumblue;
+    text-decoration: none;
+}
+
+/*   //////////     CORRECTED CALCIUM CALCULATOR PAGE STYLES    /////////////*/
+
+.calcium_header {
+    background-color: lightcyan;
+    border-radius: 3px;
+    margin: 1.25rem, 2rem;
+    padding: 5px;
+    
+}
+
+.input-group {
+    width: 75%;
+    margin: auto;
+}
+
+.input-group-addon {
+    min-width: 7rem;;
+}
+
+.form_label {
+    font-size: 1.5rem;
+    margin-left: 10rem;
+}
+
+
+#normal_albumin {
+    background-color: gainsboro;
+    
+}
+
+#calculate_corrected_calcium {
+    margin-bottom: 2rem;
+}
+
+#corrected_calcium_panel_output {
+    margin: auto;
+    width: 75%;
+    height: 12rem;
+}
+
+#corrected_calcium_output {
+    font-size: 2rem;
+    
+}
+
+.panel-heading {
+    height: 4rem;
+}
+
+.output_heading {
+    margin-top: 1rem;
+    
+}
+
